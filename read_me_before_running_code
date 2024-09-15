@@ -1,3 +1,19 @@
 Este ejercicio filtra del archivo personal.txt todos aquellos nombres que contienen un número par de vocales únicas en posiciones pares dentro del nombre completo.
 
 Tanto el archivo playground como el archivo index.py generan un archivo .txt con el resultado, el cual podrás posteriormente comparar para verificar que el contenido es idéntico.
+
+Para almacenar el contenido del archivo personal.txt dentro de mongo, puedes correr los siguientes comandos:
+
+Desde un terminal de Linux(si estás trabajando en un contenedor de Docker):
+
+data=$(cat personal.txt | while read nombre; do echo "{ nombre: \"$nombre\" }"; done | paste -sd ",")
+
+Ahora carga en mongo todo el contenido a través de su CLI:
+
+mongosh --eval "db.personal.insertMany([$data])"
+
+Lanza entonces el CLI de mongo y verifica que la carga fue exitosa:
+
+dp.personal.find().pretty()
+
+Ya lo tienes listo para practicar.
