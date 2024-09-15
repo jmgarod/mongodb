@@ -1,0 +1,3 @@
+Este ejercicio filtra del archivo personal.txt todos aquellos nombres que contienen un número par de vocales únicas en posiciones pares dentro del nombre completo.
+
+Tanto el archivo playground como el archivo index.py generan un archivo .txt con el resultado, el cual podrás posteriormente comparar para verificar que el contenido es idéntico.
